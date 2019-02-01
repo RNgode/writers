@@ -62,24 +62,24 @@ class Bid(models.Model):
 
      #Client table: Information about the client
 class Client(models.Model):
-    first_name=models.CharField(max_length=200, blank=True)
-    last_name=models.CharField(max_length=200, blank=True)
-    email_address=models.CharField(max_length=200, blank=True)
-    phonenumber=models.IntegerField(null=False, blank=False, default=0)
+    first_name=models.CharField(max_length=200,null=True, blank=False)
+    last_name=models.CharField(max_length=200,null=True, blank=False)
+    email_address=models.CharField(max_length=200,null=True, blank=False)
+    phonenumber=models.IntegerField(null=True, blank=False)
 
 
     #Administration table
 class Admin(models.Model):
-    first_name=models.CharField(max_length=200, blank=True)
-    last_name=models.CharField(max_length=200, blank=True)
-    email_address=models.CharField(max_length=200, blank=True)
-    phonenumber=models.IntegerField(null=False, blank=False, default=0)
+    first_name=models.CharField(max_length=200,null=True, blank=False)
+    last_name=models.CharField(max_length=200,null=True, blank=False)
+    email_address=models.CharField(max_length=200,null=True, blank=False)
+    phonenumber=models.IntegerField(null=True, blank=False)
 
 
     #Writers table
 class Writer(models.Model):
-    first_name=models.CharField(max_length=200, blank=True)
-    last_name=models.CharField(max_length=200, blank=True)
-    email_address=models.CharField(max_length=200, blank=True)
-    phonenumber=models.IntegerField(null=False, blank=False, default=0)
+    first_name=models.CharField(max_length=200,null=True, blank=False)
+    last_name=models.CharField(max_length=200,null=True, blank=False)
+    email_address=models.CharField(max_length=200,null=True, blank=False)
+    phonenumber=models.IntegerField(null=True, blank=False)
 
