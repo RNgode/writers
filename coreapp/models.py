@@ -5,6 +5,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+# from phonenumber_field.modelfields import phonenumberField
 
 
 class Status(models.Model):
@@ -45,19 +46,40 @@ class Order(models.Model):
     def __str__(self):
         return self.order_topic
 
+    #comments table: Allows the client to post their satisfaction or dispute on services received.
 class Comment(models.Model):
     order=models.ForeignKey(Order, on_delete=models.CASCADE)
     user=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     time=models.DateTimeField()
     is_seen=models.BooleanField(default=False)
 
-
+    #Bid table: This is the connection between the orders done by the clients and the the writers bidding on the order
 class Bid(models.Model):
     order=models.ForeignKey(Order, on_delete=models.CASCADE)
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     bid_amount=models.IntegerField()
 
 
+     #Client table: Information about the client
+class Client(models.Model):
+    first_name=models.CharField(max_length=200, blank=True)
+    last_name=models.CharField(max_length=200, blank=True)
+    email_address=models.CharField(max_length=200, blank=True)
+    phonenumber=models.IntegerField(null=False, blank=False, default=0)
 
- 
-      
+
+    #Administration table
+class Admin(models.Model):
+    first_name=models.CharField(max_length=200, blank=True)
+    last_name=models.CharField(max_length=200, blank=True)
+    email_address=models.CharField(max_length=200, blank=True)
+    phonenumber=models.IntegerField(null=False, blank=False, default=0)
+
+
+    #Writers table
+class Writer(models.Model):
+    first_name=models.CharField(max_length=200, blank=True)
+    last_name=models.CharField(max_length=200, blank=True)
+    email_address=models.CharField(max_length=200, blank=True)
+    phonenumber=models.IntegerField(null=False, blank=False, default=0)
+
